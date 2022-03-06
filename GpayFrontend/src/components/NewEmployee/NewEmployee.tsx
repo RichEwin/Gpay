@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router';
 import { ROUTES } from '../../constant/routes';
+import { useCreateEmployee } from '../../hooks/useApi';
 import Input from '../ui/Input';
 import { InputGroup } from '../ui/Input.styles';
 import { ButtonContainer, Header, HeaderContainer, SubmitButton } from './NewEmployee.styles';
@@ -14,7 +15,10 @@ const NewEmployee = () => {
   const [phoneNumber, SetPhoneNumber] = useState('');
   const [country, SetCountry] = useState('');
 
+  const { postData, isError, isLoading } = useCreateEmployee(name, email, phoneNumber, country);
+
   const submitEmployeeClickHandler = () => {
+    postData();
     navigate(ROUTES.Home);
   };
 
@@ -23,6 +27,8 @@ const NewEmployee = () => {
       <HeaderContainer>
         <Header>{header}</Header>
       </HeaderContainer>
+      {isError && <h1>Error</h1>}
+      {isLoading && <h1>Loading</h1>}
       <InputGroup>
         <Input
           label="name"
