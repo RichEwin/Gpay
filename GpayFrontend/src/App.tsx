@@ -1,7 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { Routes, Route } from 'react-router';
+import { HashRouter } from 'react-router-dom';
+import Dashboard from './components/Dashboard/Dashboard';
 
 const App = () => (
-  <h1>Hello World</h1>
-)
+  <HashRouter>
+    <Routes>
+      <Route path="/" element={<Dashboard />} />
+    </Routes>
+  </HashRouter>
+);
 
-export default App
+export default App;
