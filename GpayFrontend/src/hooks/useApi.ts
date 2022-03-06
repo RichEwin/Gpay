@@ -34,3 +34,25 @@ export const useCreateEmployee = (name: string, phoneNumber: string, email: stri
     postData, isError, isLoading,
   };
 };
+
+
+export const useFetchEmployees = () => {
+  const [employeeData, setEmployeeData] = useState([]);
+  const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(true);
+    axios
+      .get('http://localhost:3002/api/employees')
+      .then((response: AxiosResponse) => {
+        setIsLoading(false);
+        setEmployeeData(response.data);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        setIsError(true);
+      });
+  }, []);
+  return { employeeData, isError, isLoading };
+};
