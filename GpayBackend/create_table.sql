@@ -1,0 +1,12 @@
+CREATE DATABASE gigapay;
+USE gigapay;
+
+CREATE TABLE giggers (
+    id INT AUTO_INCREMENT NOT NULL,
+    InDtTm DATETIME DEFAULT CURRENT_TIMESTAMP,
+    phoneNumber VARCHAR(150),
+    name VARCHAR(150),
+    email VARCHAR(150),
+    country VARCHAR(150),
+    PRIMARY KEY (id)
+);
