@@ -62,6 +62,7 @@ const NewEmployee = () => {
       <ButtonContainer>
         <SubmitButton
           onClick={submitEmployeeClickHandler}
+          disabled={!name || !phoneNumber || !email || !country}
         >
           submit
         </SubmitButton>
