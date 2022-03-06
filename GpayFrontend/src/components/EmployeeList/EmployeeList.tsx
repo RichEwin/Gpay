@@ -1,5 +1,6 @@
 import React from 'react'
 import { EmployeeData } from '../../constant/types';
+import { dateFormatter } from '../../helpers/dateFormatter';
 import { useFetchEmployees } from '../../hooks/useApi';
 import {
   StyledTable,
@@ -37,7 +38,7 @@ const EmployeeList = () => {
                   <TD>{employee.phoneNumber}</TD>
                   <TD>{employee.email}</TD>
                   <TD>{employee.country}</TD>
-                  <TD>{employee.InDtTm}</TD>
+                  <TD>{dateFormatter(employee.InDtTm)}</TD>
                 </TR>
               ))}
             </TBody>
