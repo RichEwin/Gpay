@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router';
+import { ROUTES } from '../../constant/routes';
 import Input from '../ui/Input';
 import { InputGroup } from '../ui/Input.styles';
 import { ButtonContainer, Header, HeaderContainer, SubmitButton } from './NewEmployee.styles';
 
 const NewEmployee = () => {
+  const navigate = useNavigate();
   const header = 'add a new gigger'
 
   const [name, SetName] = useState('');
@@ -12,6 +15,7 @@ const NewEmployee = () => {
   const [country, SetCountry] = useState('');
 
   const submitEmployeeClickHandler = () => {
+    navigate(ROUTES.Home);
   };
 
   return (
