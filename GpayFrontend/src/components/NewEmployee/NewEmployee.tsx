@@ -1,8 +1,9 @@
 import React from 'react'
 
 const NewEmployee = () => {
+  const header = 'add a new gigger'
   return (
-    <div>NewEmployee</div>
+    <div>{header}</div>
   )
 }
 
