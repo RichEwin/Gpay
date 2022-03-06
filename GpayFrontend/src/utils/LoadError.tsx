@@ -11,8 +11,9 @@ const LoadError = ({ list }: LoadErrorProps) => (
   <Body>
     <ErrorStyle>
       ERROR:
+      {" "}
       {list}
-      can not be loaded.
+      can not be loaded. Check server connection.
     </ErrorStyle>
   </Body>
 );

@@ -5,6 +5,7 @@ export const ErrorStyle = styled.div`
   text-align: center;
   line-height: 35px;
   font-size: 20px;
+  color: red;
 `;
 
 export const Body = styled.div`

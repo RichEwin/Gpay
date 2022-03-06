@@ -27,44 +27,39 @@ const EmployeeList = () => {
 
   return (
     <>
+      {isLoading && <Loading list="Giggers list is  " />}
       {isError && <LoadError list="Giggers list " />}
       <TableContainer>
-        {
-          isLoading ? (
-            <Loading list="Giggers list is  " />
-          ) : employeeData.length > 0 ? (
-            <StyledTable>
-              <THead>
-                <TR>
-                  <TH>Name</TH>
-                  <TH>E-mail</TH>
-                  <TH>Phone Number</TH>
-                  <TH>Country</TH>
-                  <TH>Date Created</TH>
+        {employeeData.length > 0 &&
+          <StyledTable>
+            <THead>
+              <TR>
+                <TH>Name</TH>
+                <TH>E-mail</TH>
+                <TH>Phone Number</TH>
+                <TH>Country</TH>
+                <TH>Date Created</TH>
+              </TR>
+            </THead>
+            <TBody>
+              {employeeData.map((employee: EmployeeData) => (
+                <TR key={employee.id}>
+                  <TD>{employee.name}</TD>
+                  <TD>{employee.phoneNumber}</TD>
+                  <TD>{employee.email}</TD>
+                  <TD>{employee.country}</TD>
+                  <TD>{dateFormatter(employee.InDtTm)}</TD>
+                  <TD>
+                    <ButtonDeleteEmployee
+                      onClick={() => onClickDeleteHandler(employee.id)}
+                    >
+                      X
+                    </ButtonDeleteEmployee>
+                  </TD>
                 </TR>
-              </THead>
-              <TBody>
-                {employeeData.map((employee: EmployeeData) => (
-                  <TR key={employee.id}>
-                    <TD>{employee.name}</TD>
-                    <TD>{employee.phoneNumber}</TD>
-                    <TD>{employee.email}</TD>
-                    <TD>{employee.country}</TD>
-                    <TD>{dateFormatter(employee.InDtTm)}</TD>
-                    <TD>
-                      <ButtonDeleteEmployee
-                        onClick={() => onClickDeleteHandler(employee.id)}
-                      >
-                        X
-                      </ButtonDeleteEmployee>
-                    </TD>
-                  </TR>
-                ))}
-              </TBody>
-            </StyledTable>
-          ) : (
-            <EmptyContent>no giggers.</EmptyContent>
-          )
+              ))}
+            </TBody>
+          </StyledTable>
         }
       </TableContainer>
     </>
