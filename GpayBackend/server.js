@@ -35,3 +35,14 @@ app.post("/api/employees", (req, res) => {
     }
   })
 })
+
+app.get("/api/employees", (req, res) => {
+  const sqlSelect = "SELECT * FROM giggers";
+  db.query(sqlSelect, (err, result) => {
+    if (err) {
+      console.log(err)
+    } else {
+      res.send(result)
+    }
+  })
+})
