@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router';
 import { ROUTES } from '../../constant/routes';
 import { useCreateEmployee } from '../../hooks/useApi';
+import LoadError from '../../utils/LoadError';
+import Loading from '../../utils/Loading';
 import Input from '../ui/Input';
 import { InputGroup } from '../ui/Input.styles';
 import { ButtonContainer, Header, HeaderContainer, SubmitButton } from './NewEmployee.styles';
@@ -27,8 +29,8 @@ const NewEmployee = () => {
       <HeaderContainer>
         <Header>{header}</Header>
       </HeaderContainer>
-      {isError && <h1>Error</h1>}
-      {isLoading && <h1>Loading</h1>}
+      {isError && <LoadError list="Add new gigger " />}
+      {isLoading && <Loading list="Add new gigger " />}
       <InputGroup>
         <Input
           label="name"
