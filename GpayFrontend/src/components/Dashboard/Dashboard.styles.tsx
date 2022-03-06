@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { GlobalButton } from '../../styles/global';
 
 export const HeaderContainer = styled.div`
   display: flex;
@@ -10,5 +11,5 @@ export const Header = styled.div`
     font-size: 40px;
 `;
 
-export const ButtonAddEmployee = styled.button`
+export const ButtonAddEmployee = styled(GlobalButton)`
 `;
