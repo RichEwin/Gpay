@@ -46,3 +46,16 @@ app.get("/api/employees", (req, res) => {
     }
   })
 })
+
+app.delete("/api/employees/:id", (req, res) => {
+  const id = req.params.id;
+
+  const sqlDelete = "DELETE FROM giggers WHERE id = (?)";
+  db.query(sqlDelete, id, (err, result) => {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log(result)
+    }
+  })
+})

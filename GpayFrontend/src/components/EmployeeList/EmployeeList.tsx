@@ -1,7 +1,7 @@
 import React from 'react'
 import { EmployeeData } from '../../constant/types';
 import { dateFormatter } from '../../helpers/dateFormatter';
-import { useFetchEmployees } from '../../hooks/useApi';
+import { useDeletEmployee, useFetchEmployees } from '../../hooks/useApi';
 import {
   StyledTable,
   TR,
@@ -10,12 +10,17 @@ import {
   THead,
   TBody,
   TableContainer,
+  ButtonDeleteEmployee
 } from './EmployeeList.styles';
 
 const EmployeeList = () => {
   const { employeeData, isError, isLoading } = useFetchEmployees();
+  const { deleteEmployee } = useDeletEmployee();
 
-  console.log(employeeData)
+  const onClickDeleteHandler = (id: string) => {
+    deleteEmployee(id);
+    window.location.reload();
+  };
 
   return (
     <>
@@ -39,6 +44,13 @@ const EmployeeList = () => {
                   <TD>{employee.email}</TD>
                   <TD>{employee.country}</TD>
                   <TD>{dateFormatter(employee.InDtTm)}</TD>
+                  <TD>
+                    <ButtonDeleteEmployee
+                      onClick={() => onClickDeleteHandler(employee.id)}
+                    >
+                      X
+                    </ButtonDeleteEmployee>
+                  </TD>
                 </TR>
               ))}
             </TBody>

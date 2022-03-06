@@ -56,3 +56,25 @@ export const useFetchEmployees = () => {
   }, []);
   return { employeeData, isError, isLoading };
 };
+
+export const useDeletEmployee = () => {
+  const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const deleteEmployee = (id: string): void => {
+    setIsLoading(true);
+    axios
+      .delete(`http://localhost:3002/api/employees/${id}`)
+      .then((response: AxiosResponse) => {
+        setIsLoading(false);
+        console.log(response);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        setIsError(true);
+      });
+  };
+  return {
+    deleteEmployee, isError, isLoading,
+  };
+};
