@@ -59,3 +59,7 @@ app.delete("/api/employees/:id", (req, res) => {
     }
   })
 })
+
+app.get('/', (req, res) => {
+  res.send(`Hey! I am running on port ${port} ;D `)
+});
