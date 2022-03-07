@@ -20,7 +20,7 @@ const EmployeeList = () => {
   const { employeeData, isError, isLoading } = useFetchEmployees();
   const { deleteEmployee } = useDeletEmployee();
 
-  const onClickDeleteHandler = (id: string) => {
+  const deleteEmployeeClickHandler = (id: string) => {
     deleteEmployee(id);
     window.location.reload();
   };
@@ -51,7 +51,7 @@ const EmployeeList = () => {
                   <TD>{dateFormatter(employee.InDtTm)}</TD>
                   <TD>
                     <ButtonDeleteEmployee
-                      onClick={() => onClickDeleteHandler(employee.id)}
+                      onClick={() => deleteEmployeeClickHandler(employee.id)}
                     >
                       X
                     </ButtonDeleteEmployee>
