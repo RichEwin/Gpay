@@ -33,8 +33,16 @@ http://localhost:3002/
 ```
 
 ### Database Installation 
+
+Either run with your locally instead MySQL:
 ```
 cd GpayBackend
 
 mysql < create_table.sql
+```
+
+Or if you already have docker-compose:
+```
+cd GpayBackend
+docker-compose up --build
 ```

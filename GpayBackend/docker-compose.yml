@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  db:
+    build: .
+    environment:
+      MYSQL_DATABASE: "gigapay"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    restart: always
+    command: --init-file /create_table.sql
+    ports:
+     - "3306:3306"
