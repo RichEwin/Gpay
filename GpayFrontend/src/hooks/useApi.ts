@@ -1,20 +1,15 @@
 import { useEffect, useState } from 'react';
 import axios, { AxiosResponse } from 'axios';
+import { EmployeeData } from '../constant/types';
+import { giggerData } from '../constant/types'
 
 const headers = {
   'Content-Type': 'application/json',
 };
 
-export const useCreateEmployee = (name: string, phoneNumber: string, email: string, country: string) => {
+export const useCreateEmployee = (giggerData: giggerData) => {
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
-  const giggerData = {
-    phoneNumber,
-    name,
-    email,
-    country,
-  };
 
   const postData = (): void => {
     setIsLoading(true);
@@ -37,7 +32,7 @@ export const useCreateEmployee = (name: string, phoneNumber: string, email: stri
 
 
 export const useFetchEmployees = () => {
-  const [employeeData, setEmployeeData] = useState([]);
+  const [employeeData, setEmployeeData] = useState<EmployeeData[]>([]);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 

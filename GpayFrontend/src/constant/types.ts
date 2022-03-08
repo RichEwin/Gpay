@@ -11,3 +11,11 @@ export interface EmployeeData {
   email: string;
   country: string;
 }
+
+
+export interface giggerData {
+  name: string,
+  email: string,
+  phoneNumber: string,
+  country: string
+}

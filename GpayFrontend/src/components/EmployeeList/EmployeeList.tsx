@@ -45,8 +45,8 @@ const EmployeeList = () => {
               {employeeData.map((employee: EmployeeData) => (
                 <TR key={employee.id}>
                   <TD>{employee.name}</TD>
-                  <TD>{employee.phoneNumber}</TD>
                   <TD>{employee.email}</TD>
+                  <TD>{employee.phoneNumber}</TD>
                   <TD>{employee.country}</TD>
                   <TD>{dateFormatter(employee.InDtTm)}</TD>
                   <TD>

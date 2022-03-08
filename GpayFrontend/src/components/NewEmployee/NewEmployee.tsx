@@ -17,7 +17,14 @@ const NewEmployee = () => {
   const [phoneNumber, SetPhoneNumber] = useState('');
   const [country, SetCountry] = useState('');
 
-  const { postData, isError, isLoading } = useCreateEmployee(name, email, phoneNumber, country);
+  const giggaData = {
+    name,
+    email,
+    phoneNumber,
+    country
+  }
+
+  const { postData, isError, isLoading } = useCreateEmployee(giggaData);
 
   const submitEmployeeClickHandler = () => {
     postData();
